@@ -1,0 +1,49 @@
+﻿<Page x:Class="BurgerJoint.UI.Sides"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BurgerJoint.UI"
+      mc:Ignorable="d" 
+      Height="640" Width="1400" Background="White"
+      Title="Sides">
+    <Grid>
+        <ScrollViewer Background="#FFF1F1F1" Margin="0,0,0,-10" HorizontalAlignment="Right" Width="1400" >
+            <StackPanel Width="1380" Height="630">
+                <ItemsControl x:Name="burgerlist" >
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="10" Width="200" Height="270" Background="#FFEEEDED">
+                                <StackPanel>
+                                    <Border Width="100" Height="100" CornerRadius="5" Margin="5">
+                                        <Border.Effect>
+                                            <DropShadowEffect ShadowDepth="1"/>
+                                        </Border.Effect>
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding ItemPhoto}"/>
+                                        </Border.Background>
+                                    </Border>
+                                    <TextBlock x:Name="UnitPrice" Margin="2" VerticalAlignment="Center" Text="{Binding UnitPrice, StringFormat={}{0}}" FontSize="17" FontFamily="Franklin Gothic Medium"/>
+                                    <TextBlock Margin="2" Text="{Binding ItemName}"  VerticalAlignment="Center" FontSize="15" FontWeight="Bold"/>
+                                    <TextBlock Height="30" Margin="2 0" Text="{Binding Description}"  VerticalAlignment="Center" TextWrapping="Wrap" FontSize="10" ></TextBlock>
+                                    <local:Quntity Height="30" Width="60" Margin="5,5,5,5" ></local:Quntity>
+                                    <Button Margin="5,5,5,5"  x:Name="BtnAdd" Content="Add To Cart" Grid.Column="2"  Background="AntiqueWhite" Foreground="Brown" Grid.Row="5" Width="150"
+                                                 FontSize="20"  Click="Add_to_oder">
+                                    </Button>
+
+
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</Page>

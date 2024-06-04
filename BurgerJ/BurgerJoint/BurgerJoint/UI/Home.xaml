@@ -1,0 +1,147 @@
+﻿<Window x:Class="BurgerJoint.UI.Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BurgerJoint.UI"
+        mc:Ignorable="d" Name="Homewnd"
+        Title="Home" Height="800" Width="1400" 
+        ResizeMode="NoResize"  WindowStartupLocation="CenterScreen">
+    <!--"{StaticResource HeaderFooter}" <Separator BorderThickness="600"/>-->
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.13*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.05*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="Brown">
+            <WrapPanel >
+                <Button Height="100" Width="110" Background="Brown" BorderBrush="Transparent" Click="bjhome_Click">
+                    <Ellipse Height="90" Width="100">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Image/logo.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Button>
+                <!--<Ellipse Height="100" Width="100">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/Image/logo.png"/>
+                    </Ellipse.Fill>
+                </Ellipse>-->
+                <Separator BorderThickness="130"/>
+                <Grid Width="635" Height="70" >
+                    <Menu x:Name="myMenu" Grid.Row="0">
+                        <!--<MenuItem x:Name="bjexit" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Courgette" FontWeight="Bold" Width="55" Click="bjexit_Click" >
+                            <MenuItem.Icon>
+                                <Image Source="/Image/iconexit.ico" Margin="0,-15,-13,-11"/>
+                            </MenuItem.Icon>
+                        </MenuItem>-->
+                        <!-- <MenuItem x:Name="bjhome"  BorderBrush="black" BorderThickness="2" Width="71" Click="bjhome_Click" >
+                            <MenuItem.Icon>
+                                <Image Source="/Image/iconhome.ico" Margin="-3,-21,-45,-24" VerticalAlignment="Bottom" Height="61"/>
+                            </MenuItem.Icon>
+                        </MenuItem>-->
+
+                        <MenuItem x:Name="bjburger"  Header="  Burger" FontSize="28"  FontFamily="Courgette" FontWeight="Bold" Width="152" Click="bjburger_Click">
+                            <MenuItem.Icon>
+                                <Image Source="/Image/iconburger.ico" Margin="0,-17,-26,-13" RenderTransformOrigin="0.5,0.5">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-7.202"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem x:Name="bjbeve" Header=" Beverages" FontSize="28" FontFamily="Courgette" FontWeight="Bold" Width="184" Click="bjbeve_Click" >
+                            <MenuItem.Icon>
+                                <Image Source="/Image/icondrink.ico" Margin="-6,-27,-33,-22" RenderTransformOrigin="0.5,0.5">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="10.385"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem x:Name="bjside" Header="  Sides" FontSize="28" FontFamily="Courgette" FontWeight="Bold" Width="130" Click="bjside_Click" >
+                            <MenuItem.Icon>
+                                <Image Source="/Image/iconsides.ico" Margin="-6,-27,-33,-22" RenderTransformOrigin="0.5,0.5">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="10.385"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem x:Name="bjabout" Header=" About Us" FontSize="28" FontFamily="Courgette" FontWeight="Bold" Height="70" Width="169" Click="bjabout_Click" >
+                            <MenuItem.Icon>
+                                <Image Source="/Image/iconus.ico" Margin="0,-26,-32,-23" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </Menu>
+
+                </Grid>
+                <Separator BorderThickness="10"/>
+                <Button x:Name="logBtn" Width="50" Height="50" BorderBrush="Brown" Click="logBtn_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Image/adminn.png" />
+                    </Button.Background>
+                </Button>
+                <Separator BorderThickness="120"/>
+                <Button x:Name="bjexit" Width="56" Height="50" BorderBrush="Brown" Click="bjexit_Click" >
+                    <Button.Background>
+                        <ImageBrush ImageSource="/Image/iconexit.ico" />
+                    </Button.Background>
+                </Button>
+
+            </WrapPanel>
+        </Border>
+
+        <Button x:Name="procdtopay" FontSize="25" Background="White" 
+                HorizontalContentAlignment="Left" HorizontalAlignment="Right" 
+                Width="176" Content="   Go to cart" Click="procdtopay_Click"
+                Margin="0,0.4,38.6,0.2" Grid.Row="1" BorderBrush="Transparent"/>
+        <Image Source="/Image/cart.png" Margin="1263,5.4,9.6,1.2" Grid.Row="1" />
+        <!-- Body -->
+        <ContentPresenter Grid.Row="2"/>
+
+        <Frame Name="myFrame" Source="Welcome.xaml" NavigationUIVisibility="Hidden" Margin="0,37.4,-0.4,37.4" Grid.Row="1" Grid.RowSpan="3"/>
+
+        <!-- Footer -->
+        <Border Grid.Row="3" Background="Brown">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"><InlineUIContainer>
+                                            <Image Source="/Image/iconinstagram.ico"/>
+                                        </InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                            <Separator BorderThickness="70" />
+                                        </InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                            <Image Source="/Image/iconchat.ico"/>
+                                        </InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                            <Separator BorderThickness="70" />
+                                        </InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                            <Image Source="/Image/iconfb.ico"/>
+                                        </InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                            <Separator BorderThickness="70" />
+                                        </InlineUIContainer><Run Text=" "/><InlineUIContainer>
+                                            <Image Source="/Image/iconlike.ico"/>
+                                        </InlineUIContainer></TextBlock>
+
+        </Border>
+    </Grid>
+</Window>
+
